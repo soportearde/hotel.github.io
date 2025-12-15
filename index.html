@@ -9,13 +9,15 @@
   <link rel="stylesheet" href="css/globals.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
+<a href="#contenido" class="skip-link">Saltar al contenido principal</a>
 
 <nav class="navbar py-4 navbar-expand-lg bg-body-tertiary fixed-top shadow-sm">
   <div class="container">
     <a class="navbar-brand fw-bold" href="index.html">Hotel Áurea</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Abrir menú de navegación">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -30,48 +32,61 @@
   </div>
 </nav>
 
+<main id="contenido">
 
 <header class="hero">
-  <div class="content">
+  <div class="content text-center">
     <h1 class="display-4 fw-light">Experimenta el Lujo y la Elegancia</h1>
     <p class="lead mb-4">Disfruta de una estancia inolvidable en el corazón de la ciudad.</p>
-    <a href="reservas.html" class="btn btn-gold btn-lg">Buscar Disponibilidad</a>
+    <a href="reservas.html" class="btn btn-gold btn-lg">Buscar disponibilidad</a>
   </div>
 </header>
 
-<section>
+<section aria-labelledby="instalaciones">
+  <h2 id="instalaciones" class="visually-hidden">Instalaciones del hotel</h2>
+
   <div class="container-fluid">
     <div class="bloque-imagen" data-aos="fade-up">
-      <img src="https://images.unsplash.com/photo-1660557989695-14fac79c086d?auto=format&fit=crop&q=80&w=1170" alt="">
+      <img src="https://images.unsplash.com/photo-1660557989695-14fac79c086d"
+           alt="Recibidor principal del Hotel Áurea">
       <div class="texto-superpuesto">Recibidor</div>
     </div>
+
     <div class="bloque-imagen" data-aos="fade-up">
-      <img src="https://images.unsplash.com/photo-1552960226-639240203497?auto=format&fit=crop&q=80&w=1170" alt="">
+      <img src="https://images.unsplash.com/photo-1552960226-639240203497"
+           alt="Restaurante del Hotel Áurea">
       <div class="texto-superpuesto">Restaurante</div>
     </div>
+
     <div class="bloque-imagen" data-aos="fade-up">
-      <img src="https://images.unsplash.com/photo-1583416750470-965b2707b355?auto=format&fit=crop&q=80&w=1170" alt="">
+      <img src="https://images.unsplash.com/photo-1583416750470-965b2707b355"
+           alt="Piscina exterior del hotel">
       <div class="texto-superpuesto">Piscina</div>
     </div>
+
     <div class="bloque-imagen" data-aos="fade-up">
-      <img src="https://images.unsplash.com/photo-1576675784431-8dd9e2a0c9b9?auto=format&fit=crop&q=80&w=1170" alt="">
+      <img src="https://images.unsplash.com/photo-1576675784431-8dd9e2a0c9b9"
+           alt="Zona de spa y bienestar">
       <div class="texto-superpuesto">Spa</div>
     </div>
+
     <div class="bloque-imagen" data-aos="fade-up">
-      <img src="https://images.unsplash.com/photo-1600047508788-786f386d02b2?auto=format&fit=crop&q=80&w=1170" alt="">
+      <img src="https://images.unsplash.com/photo-1600047508788-786f386d02b2"
+           alt="Suites de lujo del hotel">
       <div class="texto-superpuesto">Suites</div>
     </div>
   </div>
 </section>
 
+</main>
 
 <footer>
   <p>© 2025 Hotel Áurea. Todos los derechos reservados.</p>
 </footer>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>AOS.init({duration: 1000, once: true});</script>
+<script>AOS.init({ duration: 1000, once: true });</script>
+
 </body>
 </html>
