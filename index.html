@@ -8,6 +8,23 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/globals.css">
   <link rel="stylesheet" href="css/style.css">
+  <!-- ════════════════════════════════════════════
+       HOTJAR — Código de seguimiento  (hjid: 5234567)
+       Habilita automáticamente: Mapas de calor,
+       Grabaciones de sesión y Encuestas en página.
+       Sustituir 5234567 por el Site ID de tu cuenta.
+       ════════════════════════════════════════════ -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:5234567,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+  <script src="https://t.contentsquare.net/uxa/1a7d72758cce8.js"></script>
 </head>
 
 <body>
@@ -202,6 +219,25 @@
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 1000, once: true });
+
+  /* ════════════════════════════════════════════
+     HOTJAR — Funcionalidad 1 y 3: Eventos clave
+     Se registran dos eventos para segmentar los
+     mapas de calor y activar encuestas en el
+     momento de mayor intención del visitante.
+     ════════════════════════════════════════════ */
+  document.querySelector('.btn-gold.btn-lg')?.addEventListener('click', function () {
+    if (typeof hj === 'function') hj('event', 'cta_hero_clicked');
+  });
+  (function () {
+    var hjScrollDone = false;
+    window.addEventListener('scroll', function () {
+      if (!hjScrollDone && window.scrollY > window.innerHeight * 0.5) {
+        hjScrollDone = true;
+        if (typeof hj === 'function') hj('event', 'scrolled_below_hero');
+      }
+    }, { passive: true });
+  })();
 
   /* ════════════════════════════════════════════
      ANIMACIÓN JAVASCRIPT — Contador numérico
