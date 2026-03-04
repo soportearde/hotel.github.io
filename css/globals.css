@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
 
 :root {
@@ -9,124 +10,88 @@
   --color-footer-texto: #fafaf9;
 }
 
-/* =====================
-   Estilos base
-===================== */
-
 body {
   font-family: 'Julius Sans One', sans-serif;
   background-color: var(--color-fondo);
   color: var(--color-texto);
   margin: 0;
   padding: 0;
-  line-height: 1.6;
 }
 
-/* =====================
-   Accesibilidad teclado
-===================== */
-
-a:focus,
-button:focus,
-input:focus,
-select:focus,
-textarea:focus {
-  outline: 3px solid var(--color-dorado);
-  outline-offset: 2px;
-}
-
-/* =====================
-   Skip link
-===================== */
-
+/* ── ACCESIBILIDAD ── */
 .skip-link {
   position: absolute;
-  left: -999px;
-  top: 10px;
-  background-color: #000;
+  top: -100%;
+  left: 1rem;
+  background: var(--color-dorado);
   color: #fff;
-  padding: 10px 15px;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 6px 6px;
   z-index: 9999;
-  text-decoration: none;
-  border-radius: 4px;
+  transition: top 0.2s;
 }
+.skip-link:focus { top: 0; }
 
-.skip-link:focus {
-  left: 10px;
-}
-
-/* =====================
-   Botones
-===================== */
-
+/* ── BOTÓN DORADO ── */
 .btn-gold {
   background-color: var(--color-dorado);
-  color: #ffffff;
+  color: white;
   border: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
-.btn-gold:hover,
-.btn-gold:focus {
+.btn-gold:hover {
   background-color: var(--color-dorado-oscuro);
-  color: #ffffff;
+  color: white;
+  transform: translateY(-2px);
 }
 
-/* =====================
-   Navegación
-===================== */
-
+/* ── NAVBAR ── */
 .navbar {
   background-color: #d9d7d4;
   font-size: 1.1rem;
 }
 
-.navbar a {
-  color: var(--color-texto);
-}
-
-.navbar a:focus {
-  text-decoration: underline;
-}
-
-/* =====================
-   Formularios
-===================== */
-
-label {
-  font-weight: 600;
-}
-
-input,
-select,
-textarea {
-  font-size: 1rem;
-}
-
-/* =====================
-   Footer
-===================== */
-
+/* ── FOOTER ── */
 footer {
   background-color: var(--color-footer);
   color: var(--color-footer-texto);
   text-align: center;
   padding: 20px 0;
-  margin-top: 40px;
 }
 
-/* =====================
-   Texto oculto accesible
-===================== */
+/* ══════════════════════════════════════════════
+   ANIMACIÓN CSS 2D
+   Entrada escalonada del contenido del hero.
+   Usa translateY (eje Y, plano 2D) + opacidad.
+   El escalonamiento guía la mirada: título →
+   subtítulo → llamada a la acción.
+   ══════════════════════════════════════════════ */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+/* Pulso del botón CTA: refuerzo visual para la
+   llamada a la acción principal tras la entrada */
+@keyframes pulseGold {
+  0%,
+  100% { box-shadow: 0 0 0 0 rgba(205, 164, 94, 0.55); }
+  50%  { box-shadow: 0 0 0 14px rgba(205, 164, 94, 0); }
+}
+
+/* Respeto a preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
